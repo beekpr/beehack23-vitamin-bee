@@ -15,6 +15,7 @@ import com.smartwalkie.voicepingdemo.databinding.ActivityMainBinding
 import com.smartwalkie.voicepingsdk.ConnectionState
 import com.smartwalkie.voicepingsdk.VoicePing
 import com.smartwalkie.voicepingsdk.VoicePingButton
+import com.smartwalkie.voicepingsdk.VoicePingPlayer
 import com.smartwalkie.voicepingsdk.callback.ConnectCallback
 import com.smartwalkie.voicepingsdk.exception.ErrorCode
 import com.smartwalkie.voicepingsdk.listener.*
@@ -179,8 +180,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     ) {
         log("onIncomingTalkStarted, channel: ${audioReceiver.channel.toString()}, session id: ${audioReceiver.audioSessionId}")
         // Audio processing
-        Utils.enhanceLoudnessIfPossible(audioReceiver.audioSessionId, 300)
-        Utils.boostBassIfPossible(audioReceiver.audioSessionId, 100.toShort())
+        Utils.enhanceLoudnessIfPossible(audioReceiver.audioSessionId, 10000)
+        Utils.boostBassIfPossible(audioReceiver.audioSessionId, 1000.toShort())
         runOnUiThread {
             val channelType = audioReceiver.channel?.type ?: -1
             binding.layoutIncomingTalk.visibility = View.VISIBLE
