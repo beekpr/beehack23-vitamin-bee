@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     ) {
         log("onIncomingTalkStarted, channel: ${audioReceiver.channel.toString()}, session id: ${audioReceiver.audioSessionId}")
         // Audio processing
-        Utils.enhanceLoudnessIfPossible(audioReceiver.audioSessionId, 10000)
+        Utils.enhanceLoudnessIfPossible(audioReceiver.audioSessionId, 3000)
         Utils.boostBassIfPossible(audioReceiver.audioSessionId, 1000.toShort())
         runOnUiThread {
             val channelType = audioReceiver.channel?.type ?: -1
